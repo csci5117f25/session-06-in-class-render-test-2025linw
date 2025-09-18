@@ -1,14 +1,17 @@
 # Render-test
+
 A basic website -- just enough to test out hooking things up to render, and not much more.
 
 We will go over steps in lecture. You should fill out the following:
 
 ## What steps do I need to do when I download this repo to get it running?
 
-
+- Run `pipenv install` to install all dependencies
 
 ## What commands starts the server?
 
+- Run `pipenv run flask --app server.py run` to start the dev server
+- Run `gunicorn server:app` to start the production server
 
 ## Before render
 
