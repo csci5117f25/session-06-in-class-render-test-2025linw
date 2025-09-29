@@ -1,0 +1,11 @@
+CREATE SCHEMA IF NOT EXISTS session06;
+
+CREATE TABLE IF NOT EXISTS session06.guestlist
+(
+    id SERIAL NOT NULL,
+    guest_name TEXT NOT NULL,
+
+    created_at TIMESTAMP(1) WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+
+    PRIMARY KEY (id)
+);

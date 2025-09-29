@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/style.css">
+
+  <script src="/static/hello.js" defer></script>
+
+  <title>Hi!</title>
+</head>
+
+<body>
+
+  <h1>In-class Guestlist</h1>
+
+  <h2>Add yourself to the guestlist here</h2>
+  <div>
+    <form class="pure-form">
+      <label for="guest_name">What is your name?</label>
+      <input type="text" id="guest_name" name="guest_name" minlength="3" required>
+
+      <button type="button" id="guest_submit" class="pure-button" onclick="submitButton()">Submit</button>
+    </form>
+  </div>
+
+  <h2>Guest List</h2>
+  <div id="guest_list">
+    {% for guest in guest_list %}
+      <div class="guest_name">
+        <p>{{guest.guestName}}</p>
+      </div>
+    {% endfor %}
+  </div>
+
+</body>
+
+</html>
