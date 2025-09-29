@@ -1,13 +1,22 @@
+const guestForm = document.getElementById('guest_form');
 const guestNameInput = document.getElementById('guest_name');
 const guestFormSubmit = document.getElementById('guest_submit');
 
-guestFormSubmit.addEventListener('click', submitButton);
+guestForm.addEventListener('submit', submitButton);
 guestNameInput.addEventListener('focus', function() {
   guestNameInput.style.color = 'black';
   guestNameInput.style.borderColor = '#ccc';
 });
+guestNameInput.addEventListener('keypress', async function(e) {
+  if (e.code === 'Enter') {
+    e.preventDefault();
 
-async function submitButton(e) {
+    await submitButton();
+  }
+});
+guestFormSubmit.addEventListener('click', submitButton);
+
+async function submitButton() {
   if (guestNameInput.value === '' || guestNameInput.value.length < 3) {
     guestNameInput.style.borderColor = 'red';
 
