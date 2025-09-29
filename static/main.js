@@ -8,8 +8,6 @@ guestNameInput.addEventListener('focus', function() {
 });
 
 async function submitButton(e) {
-  e.preventDefault();
-
   if (guestNameInput.value === '' || guestNameInput.value.length < 3) {
     guestNameInput.style.borderColor = 'red';
 
