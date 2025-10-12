@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="/static/css/main.css">
 
   <script src="/static/js/main.js" defer></script>
-  <script src="/static/js/form.js" defer></script>
+  <script src="/static/js/admin.js" defer></script>
 
   <title>Hi!</title>
 </head>
@@ -33,19 +33,13 @@
     </div>
 
     <div id="grid-content" class="pure-u-3-5">
-      <h2>Add yourself to the guestlist here</h2>
-      <form id="guest-form" class="pure-form">
-        <label for="guest-form-name">What is your name?</label>
-        <input type="text" id="guest-form-name" name="guest-form-name" minlength="3" required>
-
-        <button type="button" id="guest-form-submit" class="pure-button">Submit</button>
-      </form>
-
       <h2>Guest List</h2>
       <div id="guest-list">
         {% for guest in guest_list %}
-        <div id="guest-{{guest.id}}" class="guest-name">
+        <div id="guest-{{guest.id}}" style="display: flex; justify-content: space-between;">
           <p id="guest-list-name">{{guest.guestName}}</p>
+
+          <button id="guest-{{guest.id}}-delete" class="pure-button">Delete</button>
         </div>
         {% endfor %}
       </div>
@@ -56,13 +50,6 @@
     </div>
 
     <div id="grid-footer" class="pure-u-1">
-      {% with messages = get_flashed_messages() %}
-      {% if messages %}
-      {% for message in messages %}
-      <p>{{message}}</p>
-      {% endfor %}
-      {% endif %}
-      {% endwith %}
       Footer
     </div>
 
